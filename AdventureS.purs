@@ -101,7 +101,11 @@ instructions =
 	"Call Emily      Ring Ring Ring \n" 
 
 
-
+intro = "The world is going to end and you’re the only one who knows. You feel a strange urge to tell other
+people that the end is nigh. At the end of the day, you discover that a race of aliens have determined 
+that you were the supreme ruler of Earth and have planned to destroy the planet except for you and 
+everyone you’ve told. They assume you will be pleased with this and you are whisked away into the 
+galaxy."
 	
 -- Let's create some characters  the ages can be re-adjusted
 --The 'personYou' this can be re-adjusted once I can figure I/O out :D
@@ -134,8 +138,45 @@ nothing :: Thing
 nothing = {name: "nothing", edible: false}
 --============Time to set up the rooms=============------------
 livingRoom :: Room 
-livingRoom = {name: "Living Room", people: [personMax], things: [nothing], rooms: [bedRoom, kitchen, bathroom]}
+livingRoom = {name: "Living Room", people: [personMax], things: [nothing], rooms: [bedRoom, kitchen, bathroom, houseMatesRoom]}
 
 bedRoom :: Room
-bedRoom = {name: "Bed Room", people: [personMax], things: [nothing], rooms: [livingRoom, kitchen, bathroom]}
+bedRoom = {name: "Bed Room", people: [personMax], things: [nothing], rooms: [livingRoom, kitchen, bathroom, houseMatesRoom]}
 
+
+kitchen :: Room
+kitchen = {name: "Kitchen", people: [], things: [coffee], rooms: [livingRoom, kitchen, bathroom, houseMatesRoom]
+
+bathroom :: Room
+bathroom = {name: "Batrhoom", people: [], things: [], rooms: [livingRoom, kitchen, bedRoom, houseMatesRoom]}
+
+houseMatesRoom :: Room
+houseMatesRoom = {name: "House Mate's Room", things: [], rooms: [livingRoom, bedRoom, kitchen, bathroom]}
+
+-- =====Need to Construct World================================
+
+-- =====================Time to write in the story  ==========================
+--Takes in what room the person is in, and returns a message, might have to readjust this for when we have many instances in one room
+
+storyTell :: Room -> String
+storyTell bedRoom = "You wake one foggy white morning to the alluring aroma of fresh coffee and the surprising knowledge 
+that today, the world is going to end. You’re not quite sure how you know this, but it’s a fact, written in 
+your bones and coursing through your blood. Perhaps your DNA has been wound in such a way as to 
+allow you this bold insight into the workings of the universe. Or perhaps you’ve gone a bit off your 
+rocker.
+You yawn, and sit up."
+storyTell bedRoom2 = "You look around the room that you share with your closest friend, Emily. Your eyes linger on every small
+detail, aware of the fact that this may be the last time you see it. It’s neat except for a small pile of 
+clothes heaped onto the dresser and your dog, Max’s, leash thrown over a chair. There’s a note on your 
+desk that you don’t remember seeing before." --bedRoom2 is if he decides to get out of bed 
+storyTell bedRoom2 = "You grab the crumpled sheet of paper off the desk. There’s a message written in crayon that you can 
+barely make out—Rbhvn gt it? Gt chcit? Oh, Emily must have accidentally dropped this here, it just says, 
+“remember: get chocolate.” " --At this instance there will no longer be a note item in the room
+storyTell houseMatesRoom = ""
+storyTell kitchen = "You follow your nose to the kitchen, where a pot of coffee sits warmly on the counter, sparkling in the 
+sunlight. At least you’ve found some beauty on this day of impending doom.
+Your housemate Cody sits at the counter with his face buried in a mountain of textbooks, humming a 
+tune. Despite the early hour, he already has the scent of weed on him; it mingles in the air with the 
+smell of earthy java. He belches, loudly. You feel uncomfortable. Your pug Max runs over to you, curled 
+tail wagging in eager expectation of breakfast."
+storyTell livingRoom = "" 
