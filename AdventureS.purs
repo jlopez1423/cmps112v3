@@ -154,11 +154,14 @@ bathroom = {name: "Batrhoom", people: [], things: [], rooms: [livingRoom, kitche
 houseMatesRoom :: Room
 houseMatesRoom = {name: "House Mate's Room", things: [], rooms: [livingRoom, bedRoom, kitchen, bathroom]}
 
+work :: Rooms
+work = {name: "Work", things: [], rooms: [nothing]}
+
 -- =====Need to Construct World================================
 
 -- =====================Time to write in the story  ==========================
 --Takes in what room the person is in, and returns a message, might have to readjust this for when we have many instances in one room
-
+--This is just writing in if the user decides to do nothing. i.e. doesn't do any of the possible things just linearly moves around?
 storyTell :: Room -> String
 storyTell bedRoom = "You wake one foggy white morning to the alluring aroma of fresh coffee and the surprising knowledge" ++ 
 "that today, the world is going to end. You’re not quite sure how you know this, but it’s a fact, written in" ++ 
@@ -173,6 +176,7 @@ storyTell bedRoom2 = "You look around the room that you share with your closest 
 "desk that you don’t remember seeing before." --bedRoom2 is if he decides to get out of bed" 
 
 --pt 2 if the person decides to get out of bed
+--this should be an action even -- > readLetter create this function at some point.
 storyTell bedRoom2 = "You grab the crumpled sheet of paper off the desk. There’s a message written in crayon that you can " ++
 "barely make out—Rbhvn gt it? Gt chcit? Oh, Emily must have accidentally dropped this here, it just says, " ++
 " 'remember: get chocolate.' " --At this instance there will no longer be a note item in the room
@@ -186,7 +190,18 @@ storyTell kitchen = "You follow your nose to the kitchen, where a pot of coffee 
 "smell of earthy java. He belches, loudly. You feel uncomfortable. Your pug Max runs over to you, curled " ++ 
 "tail wagging in eager expectation of breakfast."
 
+storyTell kitchen2 = "Talking to Max would be silly, and Cody would surely make fun of you for it. You stand up as Max dives" ++ 
+"into his food bowl. You think you have time for a cup of coffee before you leave, but you don’t want to " ++
+"be late for your job at the boardwalk."
 
 storyTell livingRoom = "" 
+
+--Going to work without the coffee 
+storyTell work = "So what if the world’s ending? The show must go on! You throw on your biking gear and head out the " ++ 
+"door. The ride to the Santa Cruz beach boardwalk is exhilarating. The air smells like damp sand and the " ++ 
+"ocean calms your fettered nerves. The boardwalk itself is a mini-amusement park, complete with rides," ++
+"food vendors, and an arcade. You lock your bike your assigned locker and hurry to your shift."
+
+
 
 
