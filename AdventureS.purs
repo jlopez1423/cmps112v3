@@ -76,10 +76,11 @@ instance showThing :: Show Thing where
 --	"\n=WORLD DATA=" ++
 --	"\n:Rooms:\n" ++ show (map (getRoomName) o.rooms)
 
---newtype World = World
---   { name :: String
---   , rooms :: [Room] 
---   }
+-- ======================= Creating the world =========================
+newtype World = World
+   { name :: String
+   , rooms :: [Room] 
+   }
 
 --addRoomToWorld :: Room -> World -> World
 --addRoomToWorld r w = Cons r w
@@ -187,3 +188,5 @@ storyTell kitchen = "You follow your nose to the kitchen, where a pot of coffee 
 
 
 storyTell livingRoom = "" 
+
+
