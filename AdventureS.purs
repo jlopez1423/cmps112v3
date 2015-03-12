@@ -1,3 +1,8 @@
+--Needed items:
+--Need to use I/O to navigate
+--event handlers(so when the player decides to do something out of the norm.
+
+
 module Adventure where
 
 import Debug.Trace
@@ -203,5 +208,11 @@ storyTell work = "So what if the world’s ending? The show must go on! You thro
 "food vendors, and an arcade. You lock your bike your assigned locker and hurry to your shift."
 
 
-
-
+-- ================================Will Implement some of the moving around functionality ===================================
+--Room = Room I'm currently in
+--String is the command that the player types in
+exec_command :: Room -> String -> World
+exec_command world.room "Go to kitchen" = "do something"--Actually take the player there
+exec_command world.room "Go to work" =  "do something" --Actually take the player there
+exec_command world.room "Pick up note" = "do something" --Where we actually go to pick up the note
+exec_command world.room "Talk to Cody" = "do something" --The talk command make sure you are talking to who you can talk(expand if necessary)
