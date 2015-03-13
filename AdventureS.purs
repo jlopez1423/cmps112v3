@@ -210,11 +210,11 @@ storyTell work = "So what if the world’s ending? The show must go on! You thro
 
 
 -- ================================Will Implement some of the moving around functionality ===================================
---Room = Room I'm currently in
+--Room = Room I'm currently in --> Should be the room you're already in so you don't run into any errors. 
 --String is the command that the player types in
 exec_command :: Room -> String -> World
-exec_command World.rooms "Go to kitchen" = "do something"--Actually take the player there
-exec_command world.room "Go to work" =  "do something" --Actually take the player there
+exec_command bedRoom "Go to kitchen" = "do something"--Actually take the player there
+exec_command livingRoom "Go to work" =  "do something" --Actually take the player there
 exec_command world.room "Pick up note" = "do something" --Where we actually go to pick up the note
 exec_command world.room "Talk to Cody" = "do something" --The talk command make sure you are talking to who you can talk(expand if necessary)
 exec_command world.room "Tell Cody " = "do something " --if you tell cody then the end case for that will be very different.
@@ -222,3 +222,4 @@ exec_command world.room "Tell Max " = "do something" -- end game for this
 exec_command world.room "Tell Ellen" = "do soemthing" --then do it
 exec_command world.room "Tell Emily" = "do something"
 exec_command world.room "Get Coffee" = "do something" 
+exec_command World.rooms "Call Emily" = "do something" 
