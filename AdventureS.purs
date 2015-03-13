@@ -202,6 +202,7 @@ storyTell kitchen2 = "Talking to Max would be silly, and Cody would surely make 
 storyTell livingRoom = "" 
 
 --Going to work without the coffee 
+
 storyTell work = "So what if the world’s ending? The show must go on! You throw on your biking gear and head out the " ++ 
 "door. The ride to the Santa Cruz beach boardwalk is exhilarating. The air smells like damp sand and the " ++ 
 "ocean calms your fettered nerves. The boardwalk itself is a mini-amusement park, complete with rides," ++
@@ -212,7 +213,12 @@ storyTell work = "So what if the world’s ending? The show must go on! You thro
 --Room = Room I'm currently in
 --String is the command that the player types in
 exec_command :: Room -> String -> World
-exec_command world.room "Go to kitchen" = "do something"--Actually take the player there
+exec_command World.rooms "Go to kitchen" = "do something"--Actually take the player there
 exec_command world.room "Go to work" =  "do something" --Actually take the player there
 exec_command world.room "Pick up note" = "do something" --Where we actually go to pick up the note
 exec_command world.room "Talk to Cody" = "do something" --The talk command make sure you are talking to who you can talk(expand if necessary)
+exec_command world.room "Tell Cody " = "do something " --if you tell cody then the end case for that will be very different.
+exec_command world.room "Tell Max " = "do something" -- end game for this 
+exec_command world.room "Tell Ellen" = "do soemthing" --then do it
+exec_command world.room "Tell Emily" = "do something"
+exec_command world.room "Get Coffee" = "do something" 
